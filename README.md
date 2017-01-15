@@ -371,5 +371,4 @@ You need to use `gcov` to check test coverage. It is expected that every
 line in `answer03.c` is tested by these test cases.  If any line is
 marked `#####` by `gcov`, you will lose 5% of the score.  If your
 `answer03.c` has more than 20 untested lines, you will receive a zero for
-this assignment
-
+this assignment.
