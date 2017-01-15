@@ -135,7 +135,16 @@ To refer to an attribute, you need to replace `.` by `->`
 
 `opt -> ival = 2017;`
 
-(Note: you could also write `(* opt).ival` to get the same effect. Why? Recall that `(* opt)` is like referring to whatever `opt` points to. Since `opt` points to `obj`, `(* opt).ival` is the same as saying `obj.ival`. We recommend that you use the `->` syntax, because it is easier to read. One thing to notice is that `(* opt).ival` is not the same as `*opt.ival`. Why? The order of operations in the C language state that the member operator `.` has a higher precedence than the dereference operator `*`.)
+> **Note:** you could also write `(* opt).ival` to get the same effect. Why?
+> Recall that `(* opt)` is like referring to whatever `opt` points to. Since
+> `opt` points to `obj`, `(* opt).ival` is the same as saying `obj.ival`. We
+> recommend that you use the `->` syntax, because it is easier to read. 
+
+> One thing to notice is that `(* opt).ival` is *not* the same as
+> `*opt.ival`. Why?  The order of operations in the C language states
+> that the member operator `.` has a higher precedence than the
+> dereference operator `*`. So `*opt.ival` refers to whatever `opt.ival`
+> points to!
 
 Function Arguments
 ------------------
