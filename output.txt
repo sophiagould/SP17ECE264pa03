@@ -1,0 +1,87 @@
+[*] Cleaning up...
+/bin/rm -f input*
+/bin/rm -f *.o
+/bin/rm -f testgen test??
+/bin/rm -f *.gcda *.gcno gmon.out *gcov
+/bin/rm -f pa03-func*
+[*] Compiling program...
+make all
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c -DINTEGRATE_1 pa03.c -o pa03a.o
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c answer03.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func1.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func1.o -o pa03-func1-1
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func2.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func2.o -o pa03-func2-1	
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func3.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func3.o -o pa03-func3-1
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func4.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func4.o -o pa03-func4-1 -lm
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func5.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func5.o -o pa03-func5-1 -lm
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c func6.c
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03a.o answer03.o func6.o -o pa03-func6-1 -lm
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg -c -DINTEGRATE_1 -DINTEGRATE_2 pa03.c -o pa03b.o
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func1.o -o pa03-func1-2
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func2.o -o pa03-func2-2	
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func3.o -o pa03-func3-2
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func4.o -o pa03-func4-2 -lm
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func5.o -o pa03-func5-2 -lm
+gcc -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror -fprofile-arcs -ftest-coverage -pg pa03b.o answer03.o func6.o -o pa03-func6-2 -lm
+./pa03-func1-1 tests/test-func1-1
+[*] Passed
+./pa03-func1-1 tests/test-func1-2
+[*] Passed
+./pa03-func1-1 tests/test-func1-3
+[*] Passed
+./pa03-func2-1 tests/test-func2-2
+[*] Passed
+./pa03-func3-1 tests/test-func3-2
+[*] Passed
+./pa03-func4-1 tests/test-func4-2
+[*] Passed
+./pa03-func5-1 tests/test-func5-2
+[*] Passed
+./pa03-func6-1 tests/test-func6-1
+[*] Passed
+./pa03-func6-1 tests/test-func6-1
+[*] Passed
+./pa03-func6-1 tests/test-func6-3
+[*] Passed
+[*] Testing code coverage for integrate1
+gcov answer03.c
+File 'answer03.c'
+Lines executed:70.00% of 10
+answer03.c:creating 'answer03.c.gcov'
+
+grep '#####' answer03.c.gcov | wc -l
+[*] There were 3 untested line(s) in answer03.c when using the integrate1 method.
+./pa03-func1-2 tests/test-func1-1
+[*] Passed
+./pa03-func1-2 tests/test-func1-2
+[*] Passed
+./pa03-func1-2 tests/test-func1-3
+[*] Passed
+./pa03-func2-2 tests/test-func2-2
+[*] Passed
+./pa03-func3-2 tests/test-func3-2
+[*] Passed
+./pa03-func4-2 tests/test-func4-2
+[*] Passed
+./pa03-func5-2 tests/test-func5-2
+[*] Passed
+./pa03-func6-2 tests/test-func6-1
+[*] Passed
+./pa03-func6-2 tests/test-func6-1
+[*] Passed
+./pa03-func6-2 tests/test-func6-3
+[*] Passed
+[*] Testing code coverage for integrate2
+gcov answer03.c
+File 'answer03.c'
+Lines executed:100.00% of 10
+answer03.c:creating 'answer03.c.gcov'
+
+grep '#####' answer03.c.gcov | wc -l
+[*] There were 0 untested line(s) in answer03.c when using the integrate2 method.
+[*] There were 0 failing test case(s).
+[*] The minimum number of untested lines between integrate1 and integrate 2 is 0.
